@@ -1,0 +1,27 @@
+{
+  "name": "odin-weather-app",
+  "version": "1.0.0",
+  "description": "A weather forecast app created in Javascript for The Odin Project. The goal of this project is to make use of asynchronous Javascript features, JSON, and APIs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bizarf/odin-weather-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bizarf/odin-weather-app/issues"
+  },
+  "homepage": "https://github.com/bizarf/odin-weather-app#readme",
+  "devDependencies": {
+    "eslint": "^8.25.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
