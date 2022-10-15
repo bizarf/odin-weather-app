@@ -7,11 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project - Weather App</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./main.js"></script>
+    <script src="./main.js" defer></script>
 </head>
 
 <body>
+    <form>
+        <label for="citySearch">Enter a city name</label>
+        <input type="search" name="citySearch" id="citySearch" autofocus>
+        <button id="searchBtn">Search</button>
+    </form>
 
+    <div id="weather-container">
+        <h2 id="cityName"></h2>
+        <div>
+            <img src="" alt="" id="currentWeatherIcon">
+            <h3 id="currentTemp"></h3>
+        </div>
+        <div>
+            <p id="currentFeelsLike"></p>
+            <p id="currentHumidity"></p>
+            <p id="currentWindSpeed"></p>
+        </div>
+    </div>
 </body>
 
 </html>
