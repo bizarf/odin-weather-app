@@ -11,19 +11,31 @@
 </head>
 
 <body>
-    <form>
+    <form class="searchForm">
         <label for="citySearch">Enter a city name</label>
         <input type="search" name="citySearch" id="citySearch" autofocus>
         <button id="searchBtn">Search</button>
     </form>
+    <form class="tempScale">
+        <input type="radio" name="temperatureScale" id="celsius" value="celsius" checked>
+        <label for="celsius">°C</label>
+        <input type="radio" name="temperatureScale" id="fahrenheit" value="fahrenheit">
+        <label for="fahrenheit">°F</label>
+    </form>
 
+    <div class="cityError">
+        <h3 id="cityErrorText"></h3>
+    </div>
     <div id="weather-container">
-        <h2 id="cityName"></h2>
-        <div>
-            <img src="" alt="" id="currentWeatherIcon">
-            <h3 id="currentTemp"></h3>
+        <div data-weather-container="1">
+            <h1 id="cityName"></h1>
+            <p id="currentWeatherCondition"></p>
+            <div data-weather-container="2">
+                <p id="currentTemp"></p>
+                <img src="" alt="" id="currentWeatherIcon">
+            </div>
         </div>
-        <div>
+        <div data-weather-container="3">
             <p id="currentFeelsLike"></p>
             <p id="currentHumidity"></p>
             <p id="currentWindSpeed"></p>
