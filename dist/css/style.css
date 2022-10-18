@@ -3,3 +3,34 @@
 div {
     border: 1px solid;
 }
+
+body {
+    background-color: #94a3b8;
+}
+
+.cityError {
+    display: none;
+    margin: 5% 10% 0 10%;
+}
+
+#weather-container {
+    display: none;
+    margin: 5% 10% 0 10%;
+    justify-content: space-between;
+}
+
+[data-weather-container="2"] {
+    display: inline-flex;
+    align-items: center;
+}
+
+
+#currentTemp {
+    font-size: 40px;
+    margin: 0;
+}
+
+#currentWeatherIcon {
+    width: 80px;
+    height: 80px;
+}

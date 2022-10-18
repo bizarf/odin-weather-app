@@ -9,4 +9,4 @@ from './modules/data-processing.js'
 
 // weatherData("London")
 
-citySearch()
+citySearch();
