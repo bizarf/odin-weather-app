@@ -1,21 +1,33 @@
 @import url(./modern-normalize.css);
 
-div {
-    border: 1px solid;
-}
-
 body {
-    background-color: #94a3b8;
+    /* background-color: #94a3b8; */
+    background: url(../images/chan-hoi-uj-w-v7OFT4-unsplash.jpg) no-repeat center fixed;
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    color: white;
 }
 
+/* Search form */
+.searchForm {
+    text-align: center;
+}
+
+.tempScale {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* shows error message if city is not found */
 .cityError {
     display: none;
-    margin: 5% 10% 0 10%;
+    margin: 1% 10% 0 10%;
+    font-size: 30px;
 }
 
 #weather-container {
     display: none;
-    margin: 5% 10% 0 10%;
+    margin: 1% 10% 0 10%;
     justify-content: space-between;
 }
 
@@ -23,7 +35,6 @@ body {
     display: inline-flex;
     align-items: center;
 }
-
 
 #currentTemp {
     font-size: 40px;
@@ -33,4 +44,53 @@ body {
 #currentWeatherIcon {
     width: 80px;
     height: 80px;
+}
+
+#cityName {
+    font-size: 40px;
+}
+
+#currentWeatherCondition,
+[data-weather-container="3"] {
+    font-size: 20px;
+}
+
+[data-weather-container="3"] {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 480px) {
+
+    .cityError,
+    #weather-container {
+        margin: 1% 0 0 0;
+    }
+
+    #currentWeatherCondition,
+    [data-weather-container="3"] {
+        font-size: 14px;
+    }
+
+    #cityName {
+        font-size: 26px;
+    }
+
+    #currentTemp {
+        font-size: 26px;
+        margin: 0;
+    }
+
+    #currentWeatherIcon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .searchForm {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
 }

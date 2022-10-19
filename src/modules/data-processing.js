@@ -21,7 +21,6 @@ export async function citySearch() {
 // displays current weather
 function currentWeatherDisplay() {
     const cityError = document.querySelector('.cityError')
-    const cityErrorText = document.querySelector('#cityErrorText')
     const weatherContainer = document.querySelector('#weather-container')
     const currentWeatherCondition = document.querySelector('#currentWeatherCondition');
     const cityName = document.querySelector('#cityName');
@@ -31,24 +30,23 @@ function currentWeatherDisplay() {
     const currentHumidity = document.querySelector('#currentHumidity');
     const currentWindSpeed = document.querySelector('#currentWindSpeed');
 
-    // if (weatherInformation.cod === '404') {
-    //     weatherContainer.style.display = 'none';
-    //     cityError.style.display = 'flex';
-    //     cityErrorText.textContent = 'City not found';
-    // } else if (weatherInformation.cod === '400') {
-    //     return
-    // } else {
-    cityError.style.display = 'none';
-    weatherContainer.style.display = 'flex';
-    currentWeatherCondition.textContent = `${weatherInformation.weather[0].description.charAt(0).toUpperCase() + weatherInformation.weather[0].description.slice(1)}`;
-    cityName.textContent = `${weatherInformation.name}, ${weatherInformation.sys.country}`;
-    currentWeatherIcon.src = `https://openweathermap.org/img/wn/${weatherInformation.weather[0].icon}.png`;
-    currentTemp.textContent = temperatureConverter(weatherInformation.main.temp);
-    currentFeelsLike.textContent = `Feels like: ${temperatureConverter(weatherInformation.main.feels_like)}`;
-    currentHumidity.textContent = `Humidity: ${weatherInformation.main.humidity}%`;
-    currentWindSpeed.textContent = `Wind speed: ${weatherInformation.wind.speed}m/s`;
+    if (weatherInformation.cod === '404') {
+        weatherContainer.style.display = 'none';
+        cityError.style.display = 'flex';
+    } else if (weatherInformation.cod === '400') {
+        return
+    } else {
+        cityError.style.display = 'none';
+        weatherContainer.style.display = 'flex';
+        currentWeatherCondition.textContent = `${weatherInformation.weather[0].description.charAt(0).toUpperCase() + weatherInformation.weather[0].description.slice(1)}`;
+        cityName.textContent = `${weatherInformation.name}, ${weatherInformation.sys.country}`;
+        currentWeatherIcon.src = `https://openweathermap.org/img/wn/${weatherInformation.weather[0].icon}.png`;
+        currentTemp.textContent = temperatureConverter(weatherInformation.main.temp);
+        currentFeelsLike.textContent = `Feels like: ${temperatureConverter(weatherInformation.main.feels_like)}`;
+        currentHumidity.textContent = `Humidity: ${weatherInformation.main.humidity}%`;
+        currentWindSpeed.textContent = `Wind speed: ${weatherInformation.wind.speed}m/s`;
+    }
 }
-// }
 
 let temperatureScale = 'celsius';
 // let temperatureScale = 'fahrenheit'
@@ -62,16 +60,25 @@ function temperatureConverter(temp) {
     }
 }
 
+// click events for the radio buttons to toggle temperature scale
 (() => {
     const currentTemp = document.querySelector('#currentTemp');
 
-    document.querySelector('#celsius').addEventListener('click', async () => {
+    document.querySelector('#celsius').addEventListener('click', () => {
         temperatureScale = 'celsius';
-        currentTemp.textContent = await temperatureConverter(weatherInformation.main.temp);
+        if (weatherInformation === "") {
+            return
+        } else {
+            currentTemp.textContent = temperatureConverter(weatherInformation.main.temp);
+        }
     })
 
     document.querySelector('#fahrenheit').addEventListener('click', () => {
         temperatureScale = 'fahrenheit';
-        currentTemp.textContent = temperatureConverter(weatherInformation.main.temp);
+        if (weatherInformation === "") {
+            return
+        } else {
+            currentTemp.textContent = temperatureConverter(weatherInformation.main.temp);
+        }
     })
 })()
