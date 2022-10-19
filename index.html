@@ -12,7 +12,7 @@
 
 <body>
     <form class="searchForm">
-        <label for="citySearch">Enter a city name</label>
+        <label for="citySearch">Enter a city name </label>
         <input type="search" name="citySearch" id="citySearch" autofocus>
         <button id="searchBtn">Search</button>
     </form>
@@ -23,9 +23,11 @@
         <label for="fahrenheit">°F</label>
     </form>
 
+    <!-- hidden div that appears if the city is not found -->
     <div class="cityError">
-        <h3 id="cityErrorText"></h3>
+        <h3 id="cityErrorText">City not found</h3>
     </div>
+    <!-- info containing the current weather loads here -->
     <div id="weather-container">
         <div data-weather-container="1">
             <h1 id="cityName"></h1>
